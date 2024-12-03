@@ -1,11 +1,11 @@
-import { ApiProperty } from '@nestjs/swagger'; // Importing ApiProperty
+import { ApiProperty } from '@nestjs/swagger'; 
 
 export class UsersDTO {
   
   @ApiProperty({
     description: 'First name of the user',
     type: String,
-    example: 'John', // Example value for Swagger UI
+    example: 'John',
   })
   readonly firstname: string;
 

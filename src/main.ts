@@ -13,7 +13,7 @@ async function start() {
     .addTag('NEST')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/api/swagger', app, document);
+  SwaggerModule.setup('/api-docs', app, document);
 
   app.enableCors({
     origin: [

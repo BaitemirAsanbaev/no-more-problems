@@ -32,15 +32,13 @@ export class UsersService {
       await this.userRepo.bulkCreate(users, { validate: false });
       console.log(`Inserted ${i + batchSize} users`);
     }
-  
-    console.log('Database seeding completed!');
+    return({message:`Database seeding completed! Created ${totalUsers} users`})
+
   }
   async resetProblemsFlag(): Promise<number> {
-    // Посчитать количество пользователей с проблемами
     const count = await User.count({ where: { has_problems: true } });
 
-    // Обновить флаг hasProblems на false батчами
-    const batchSize = 10000;
+    const batchSize = 10_000;
     let offset = 0;
 
     while (true) {
