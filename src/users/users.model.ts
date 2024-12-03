@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { Column, DataType, Table, Model} from 'sequelize-typescript';
 
 @Table({ tableName: 'users' })
@@ -5,9 +6,10 @@ export class User extends Model<User> {
     @Column({
         type:DataType.UUID,
         unique:true,
-        primaryKey:true
+        primaryKey:true,
+        defaultValue: randomUUID
     })
-    id:number
+    id:string
     @Column({
         type:DataType.STRING,
         allowNull:false
@@ -25,7 +27,6 @@ export class User extends Model<User> {
     age:number
     @Column({
         type:DataType.BOOLEAN,
-        defaultValue:false,
         allowNull:false
     })
     has_problems:boolean
